@@ -5,9 +5,16 @@
     --imgHeight: 80px;
 }
 
+* {
+    user-select: none;
+    font-size: 17px;
+    font-family: "Roboto Light", sans-serif;
+}
+
 body, html {
     margin: 0;
     box-sizing: border-box;
+    background-color: #e1e3e1;
 }
 
 .container {
@@ -17,8 +24,73 @@ body, html {
     align-items: center;
 }
 
+.header {
+    z-index: 99;
+    top: 0;
+    position: fixed;
+    height: 80px;
+    width: 100vw;
+    background-color: black;
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: changeColor 2s linear infinite;
+    cursor: pointer;
+    transition: color .2s linear;
+}
+
+.header > .item {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    top: 18px;
+}
+
+.item-wrapper {
+    border: 1px solid black;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+}
+
+.item:hover {
+    font-size: 19px;
+    color: #3600fa;
+    font-weight: bold;
+    animation: none;
+}
+
+.item:nth-child(2) {
+    animation-delay: .3s;
+}
+
+.item:nth-child(3) {
+    animation-delay: .6s;
+}
+
+@keyframes changeColor {
+    from {
+        opacity: 1;
+    }
+    50% {
+        opacity: .2;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .wrapper {
-    margin-top: 60px;
+    position: relative;
+    margin-top: 180px;
     width: var(--width);
     height: var(--height);
     display: flex;
@@ -27,9 +99,11 @@ body, html {
     align-items: center;
     border-radius: 10px;
     border: 1px solid black;
+    transition: background-color 1s ease;
 }
 
 #loader {
+    z-index: 100;
     top: 0;
     position: fixed;
     display: flex;
@@ -60,5 +134,14 @@ body, html {
     100% {
         transform: rotate(0deg);
     }
+}
 
+@media only screen and (max-width: 600px) {
+    .wrapper {
+        background-color: white;
+        transition: background-color 1s ease;
+    }
+    .item-wrapper {
+        filter: hue-rotate(360deg);
+    }
 }

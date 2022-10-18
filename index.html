@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
-<script src="script.js"></script>
+<body onload="checkCookie()">
 <div class="container">
+    <div class="header">
+        <div class="item">header item</div>
+        <div class="item">second header item</div>
+    </div>
     <div class="wrapper">
-
+        <div class="item-wrapper">
+            <div class="item" onclick="addToClick(0)">item</div>
+            <div class="item" onclick="addToClick(0)">item2</div>
+            <div class="item" onclick="addToClick(0)">item3</div>
+        </div>
     </div>
 </div>
 <div id="loader">
     <img src="logo.png" class="logo">
 </div>
+
+<script src="script.js"></script>
 </body>
 </html>
