@@ -17,6 +17,10 @@ const addToClick = (clicks) => {
     return parseInt(clicks);
 }
 
+
+let frame = document.getElementById("frame");
+
+
 let cookies = document.cookie = "name=user; test=0";
 console.log(cookies);
 
